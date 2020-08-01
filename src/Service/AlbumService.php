@@ -29,7 +29,7 @@ class AlbumService extends BaseService
         ];
 
         $content = $this->connection->getRequest('market.addAlbum', $arr);
-        return (boolean) $content['response'];
+        return  $content['response'];
     }
 
     /**
@@ -80,6 +80,21 @@ class AlbumService extends BaseService
         $content = $this->connection->getRequest('market.addToAlbum', $arr);
 
         return (boolean) $content['response'];
+    }
+
+    public function removeFromAlbum(array $albumIds, $itemId)
+    {
+        $arr = [
+            'access_token' => $this->connection->getAccessToken(),
+            'owner_id' => '-' . $this->connection->getGroupId(),
+            'item_id' => $itemId,
+            'album_ids' => $albumIds,
+            'v' => VkConnect::API_VERSION,
+        ];
+
+        $content = $this->connection->getRequest('market.removeFromAlbum', $arr);
+
+        return (boolean)$content['response'];
     }
 
     /**
