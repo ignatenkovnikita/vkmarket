@@ -77,7 +77,7 @@ class ProductService extends BaseService
             'item_id' => $product->getVkItemId(),
             'name' => $product->getName(),
             'description' => $product->getDescription(),
-            'price' => $product->getPrice() / 100,
+            'price' => $product->getPrice() ,
             'category_id' => $product->getCategoryId(),
             'deleted' => $product->getAvailability(),
             'main_photo_id' => ((!$photo || !sizeof($photo->getMainPhotoParams())) && $product->getVkItemMainPhotoId() !== null) ?
