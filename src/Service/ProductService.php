@@ -34,6 +34,25 @@ class ProductService extends BaseService
             'v' => VkConnect::API_VERSION,
         ];
 
+        if($product->getOldPrice()){
+            $arr['old_price'] = $product->getOldPrice();
+        }
+        if($product->getUrl()){
+            $arr['url'] = $product->getUrl();
+        }
+        if($product->getDimensionWidth()){
+            $arr['dimension_width'] = $product->getDimensionWidth();
+        }
+        if($product->getDimensionHeight()){
+            $arr['dimension_height'] = $product->getDimensionHeight();
+        }
+        if($product->getDimensionLength()){
+            $arr['dimension_length'] = $product->getDimensionLength();
+        }
+        if($product->getWeight()){
+            $arr['weight'] = $product->getWeight();
+        }
+
         $content = $this->connection->getRequest('market.add', $arr);
         $id = (int)$content['response']['market_item_id'];
 
@@ -67,6 +86,27 @@ class ProductService extends BaseService
                 $product->getVkItemAdditionalPhotoIds() : $photoService->uploadAdditionalPhotos($photo),
             'v' => VkConnect::API_VERSION,
         ];
+
+
+        if($product->getOldPrice()){
+            $arr['old_price'] = $product->getOldPrice();
+        }
+        if($product->getUrl()){
+            $arr['url'] = $product->getUrl();
+        }
+        if($product->getDimensionWidth()){
+            $arr['dimension_width'] = $product->getDimensionWidth();
+        }
+        if($product->getDimensionHeight()){
+            $arr['dimension_height'] = $product->getDimensionHeight();
+        }
+        if($product->getDimensionLength()){
+            $arr['dimension_length'] = $product->getDimensionLength();
+        }
+        if($product->getWeight()){
+            $arr['weight'] = $product->getWeight();
+        }
+
 
         $content = $this->connection->getRequest('market.edit', $arr);
 

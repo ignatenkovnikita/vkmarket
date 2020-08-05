@@ -14,6 +14,13 @@ class Product
     private $price;
     private $deleted;
 
+    private $oldPrice;
+    private $url;
+    private $dimensionWidth;
+    private $dimensionHeight;
+    private $dimensionLength;
+    private $weight;
+
     private $vkItemId = null;
     private $vkItemMainPhotoId = null;
     private $vkItemAdditionalPhotoIds = [];
@@ -26,11 +33,11 @@ class Product
     /**
      * Product constructor.
      *
-     * @param string $name         название товара
-     * @param string $description      описание товара
-     * @param int $categoryId       идентификатор категории товара
-     * @param string $price        цена товара
-     * @param boolean $deleted      статус товара (1 — товар не доступен, 0 — товар доступен)
+     * @param string $name название товара
+     * @param string $description описание товара
+     * @param int $categoryId идентификатор категории товара
+     * @param string $price цена товара
+     * @param boolean $deleted статус товара (1 — товар не доступен, 0 — товар доступен)
      */
     public function __construct($name, $description, $categoryId, $price, $deleted = false)
     {
@@ -73,6 +80,54 @@ class Product
         return $this->price;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getOldPrice()
+    {
+        return $this->oldPrice;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDimensionWidth()
+    {
+        return $this->dimensionWidth;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDimensionHeight()
+    {
+        return $this->dimensionHeight;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDimensionLength()
+    {
+        return $this->dimensionLength;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getWeight()
+    {
+        return $this->weight;
+    }
+
     public function getAvailability()
     {
         return $this->deleted;
@@ -108,6 +163,50 @@ class Product
     public function setPrice($price)
     {
         $this->price = $price;
+    }
+
+    /**
+     * @param string $oldPrice
+     */
+    public function setOldPrice($oldPrice)
+    {
+        $this->oldPrice = $oldPrice;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+    /**
+     * @param string $dimensionWidth
+     */
+    public function setDimensionWidth($dimensionWidth)
+    {
+        $this->dimensionWidth = $dimensionWidth;
+    }
+    /**
+     * @param string $dimensionHeight
+     */
+    public function setDimensionHeight($dimensionHeight)
+    {
+        $this->dimensionHeight = $dimensionHeight;
+    }
+    /**
+     * @param string $dimensionLength
+     */
+    public function setDimensionLength($dimensionLength)
+    {
+        $this->dimensionLength = $dimensionLength;
+    }
+    /**
+     * @param string $weight
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
     }
 
     /**
